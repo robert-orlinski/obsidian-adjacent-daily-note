@@ -36,7 +36,7 @@ export class AdjacentDailyNoteSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Show icons in sidebar")
-      .setDesc("Show Yesterday's and Tomorrow's Daily Note icon in the sidebar ribbon.")
+      .setDesc("Show yesterday's and tomorrow's daily note icons in the sidebar ribbon.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.enableRibbonIcon)
