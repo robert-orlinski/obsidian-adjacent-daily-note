@@ -28,17 +28,17 @@ export class TomorrowsDailyNoteSettingTab extends PluginSettingTab {
       .setName("Skip Weekends")
       .setDesc("Skip weekends when opening tomorrow's daily note")
       .addToggle((toggle) =>
-        toggle
-          .setValue(this.plugin.settings.skipWeekends)
-          .onChange(async (value) => {
-            this.plugin.settings.skipWeekends = value;
-            await this.plugin.saveSettings();
-          })
+        toggle.setValue(this.plugin.settings.skipWeekends).onChange(async (value) => {
+          this.plugin.settings.skipWeekends = value;
+          await this.plugin.saveSettings();
+        }),
       );
 
     new Setting(containerEl)
       .setName("Show icon in sidebar")
-      .setDesc("Show Tomorrow's Daily Note icon in the sidebar ribbon, allowing you to open tomorrow's daily note with a single click.")
+      .setDesc(
+        "Show Tomorrow's Daily Note icon in the sidebar ribbon, allowing you to open tomorrow's daily note with a single click.",
+      )
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.enableRibbonIcon)
@@ -51,7 +51,7 @@ export class TomorrowsDailyNoteSettingTab extends PluginSettingTab {
             } else {
               this.plugin.ribbonHandler.removeRibbonIcon();
             }
-          })
+          }),
       );
   }
 }
