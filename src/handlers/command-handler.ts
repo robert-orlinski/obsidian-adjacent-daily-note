@@ -12,7 +12,7 @@ export class CommandHandler {
 
   setup() {
     this.plugin.addCommand({
-      id: "create-yesterdays-daily-note",
+      id: "open-yesterdays-daily-note",
       name: "Open yesterday's daily note",
       checkCallback: (checking: boolean) => {
         if (!checking) {
@@ -28,7 +28,7 @@ export class CommandHandler {
       },
     });
     this.plugin.addCommand({
-      id: "create-tomorrows-daily-note",
+      id: "open-tomorrows-daily-note",
       name: "Open tomorrow's daily note",
       checkCallback: (checking: boolean) => {
         if (!checking) {

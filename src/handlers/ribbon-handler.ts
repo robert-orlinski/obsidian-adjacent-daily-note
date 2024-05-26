@@ -3,8 +3,8 @@ import AdjacentDailyNote from "src";
 import { triggerDailyNotesDependencyNotice } from "src/extensions/notice";
 import { openNextDailyNote, openPreviousDailyNote } from "src/extensions/daily-notes";
 
-const YESTERDAYS_DAILY_NOTE_ICON_ID = "yesterdays-daily-note-ribbon-icon";
-const TOMORROWS_DAILY_NOTE_ICON_ID = "tomorrows-daily-note-ribbon-icon";
+const YESTERDAY_DAILY_NOTE_ICON_ID = "yesterdays-daily-note-ribbon-icon";
+const TOMORROW_DAILY_NOTE_ICON_ID = "tomorrows-daily-note-ribbon-icon";
 
 export class RibbonHandler {
   private plugin: AdjacentDailyNote;
@@ -29,7 +29,7 @@ export class RibbonHandler {
           await openPreviousDailyNote(this.plugin.settings.skipWeekends);
         }
       })
-      .setAttribute("id", YESTERDAYS_DAILY_NOTE_ICON_ID);
+      .setAttribute("id", YESTERDAY_DAILY_NOTE_ICON_ID);
     this.plugin
       .addRibbonIcon("calendar-plus", "Open tomorrow's daily note", async () => {
         if (!appHasDailyNotesPluginLoaded()) {
@@ -39,11 +39,11 @@ export class RibbonHandler {
           await openNextDailyNote(this.plugin.settings.skipWeekends);
         }
       })
-      .setAttribute("id", TOMORROWS_DAILY_NOTE_ICON_ID);
+      .setAttribute("id", TOMORROW_DAILY_NOTE_ICON_ID);
   }
 
   removeRibbonIcons() {
-    document.getElementById(YESTERDAYS_DAILY_NOTE_ICON_ID)?.remove();
-    document.getElementById(TOMORROWS_DAILY_NOTE_ICON_ID)?.remove();
+    document.getElementById(YESTERDAY_DAILY_NOTE_ICON_ID)?.remove();
+    document.getElementById(TOMORROW_DAILY_NOTE_ICON_ID)?.remove();
   }
 }

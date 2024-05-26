@@ -15,7 +15,7 @@ export default class AdjacentDailyNote extends Plugin {
   ribbonHandler: RibbonHandler;
 
   async onload() {
-    console.log("Loading plugin: Yesterday's and Tomorrow's Daily Note");
+    console.log("Loading plugin: Adjacent Daily Note");
 
     await this.loadSettings();
 
@@ -28,7 +28,7 @@ export default class AdjacentDailyNote extends Plugin {
   }
 
   onunload() {
-    console.log("Unloading plugin: Yesterday's and Tomorrow's Daily Note");
+    console.log("Unloading plugin: Adjacent Daily Note");
   }
 
   async loadSettings() {

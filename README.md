@@ -2,7 +2,7 @@
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/frankolson/obsidian-tomorrows-daily-note/releases.yml?branch=main&style=for-the-badge) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/frankolson/obsidian-tomorrows-daily-note?sort=semver&style=for-the-badge)
 
-An [Obsidian](https://obsidian.md/) plugin that creates tomorrow's daily note for preemptive planning.
+An [Obsidian](https://obsidian.md/) plugin that opens yesterday's and tomorrow's daily notes (or creates them) for easier planning.
 
 ## Requirements
 
@@ -11,18 +11,21 @@ An [Obsidian](https://obsidian.md/) plugin that creates tomorrow's daily note fo
 
 ## Usage
 
-You can open tomorrow's daily note using ribbon icon or the following command: `Tomorrow's Daily Note: Open tomorrow's daily note`
+You can open yesterday's or tomorrow's daily note using ribbon icon or following commands:
 
-![Tomorrow's Daily Note Preview](/docs/images/plugin-preview.png)
+- `Adjacent Daily Note: Open yesterday's daily note`
+- `Adjacent Daily Note: Open tomorrow's daily note`
+
+![Adjacent's Daily Note Preview](/docs/images/plugin-preview.png)
 
 ### Settings
 
 You can configure the following settings from the plugin settings menu:
 
-- **Skip Weekends**: If enabled, the plugin will skip weekends when creating tomorrow's daily note.
-- **Show icon in sidebar**: If enabled, the plugin will show an icon in the sidebar for easy access to tomorrow's daily note.
+- **Skip Weekends**: If enabled, the plugin will skip weekends when creating adjacent daily note.
+- **Show icon in sidebar**: If enabled, the plugin will show an icon in the sidebar for easy access to adjacent daily note.
 
-![Tomorrow's Daily Note Settings](/docs/images/settings-preview.png)
+![Adjacent Daily Note Settings](/docs/images/settings-preview.png)
 
 ## Installing
 
