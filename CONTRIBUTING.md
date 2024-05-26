@@ -2,7 +2,7 @@
 
 When contributing to this repository, first create an
 [issue](https://github.com/frankolson/obsidian-tomorrows-daily-note/issues)
-describing the updates you wish to make before making any changes. 
+describing the updates you wish to make before making any changes.
 
 A code of conduct has been included, please follow it in all your interactions
 with the development of this plugin.

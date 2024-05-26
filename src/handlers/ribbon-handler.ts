@@ -1,24 +1,35 @@
 import { appHasDailyNotesPluginLoaded } from "obsidian-daily-notes-interface";
-import TomorrowsDailyNote from "src";
+import AdjacentDailyNote from "src";
 import { triggerDailyNotesDependencyNotice } from "src/extensions/notice";
-import { openNextDailyNote } from "src/extensions/daily-notes";
+import { openNextDailyNote, openPreviousDailyNote } from "src/extensions/daily-notes";
 
-export const RIBBON_ICON_ID = "tomorrows-daily-note-ribbon-icon";
+const YESTERDAYS_DAILY_NOTE_ICON_ID = "yesterdays-daily-note-ribbon-icon";
+const TOMORROWS_DAILY_NOTE_ICON_ID = "tomorrows-daily-note-ribbon-icon";
 
 export class RibbonHandler {
-  private plugin: TomorrowsDailyNote;
+  private plugin: AdjacentDailyNote;
 
-  constructor(plugin: TomorrowsDailyNote) {
+  constructor(plugin: AdjacentDailyNote) {
     this.plugin = plugin;
   }
 
   setup() {
     if (this.plugin.settings.enableRibbonIcon) {
-      this.addRibbonIcon();
+      this.addRibbonIcons();
     }
   }
 
-  addRibbonIcon() {
+  addRibbonIcons() {
+    this.plugin
+      .addRibbonIcon("calendar-minus", "Open yesterday's daily note", async () => {
+        if (!appHasDailyNotesPluginLoaded()) {
+          triggerDailyNotesDependencyNotice();
+          return;
+        } else {
+          await openPreviousDailyNote(this.plugin.settings.skipWeekends);
+        }
+      })
+      .setAttribute("id", YESTERDAYS_DAILY_NOTE_ICON_ID);
     this.plugin
       .addRibbonIcon("calendar-plus", "Open tomorrow's daily note", async () => {
         if (!appHasDailyNotesPluginLoaded()) {
@@ -28,10 +39,11 @@ export class RibbonHandler {
           await openNextDailyNote(this.plugin.settings.skipWeekends);
         }
       })
-      .setAttribute("id", RIBBON_ICON_ID);
+      .setAttribute("id", TOMORROWS_DAILY_NOTE_ICON_ID);
   }
 
-  removeRibbonIcon() {
-    document.getElementById(RIBBON_ICON_ID)?.remove();
+  removeRibbonIcons() {
+    document.getElementById(YESTERDAYS_DAILY_NOTE_ICON_ID)?.remove();
+    document.getElementById(TOMORROWS_DAILY_NOTE_ICON_ID)?.remove();
   }
 }

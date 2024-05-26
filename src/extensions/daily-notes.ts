@@ -4,16 +4,23 @@ import {
   getDailyNote,
   createDailyNote,
 } from "obsidian-daily-notes-interface";
-import { getNextDailyNoteDate } from "../core/dates";
+import { getNextDailyNoteDate, getPreviousDailyNoteDate } from "../core/dates";
+
+export async function openPreviousDailyNote(skipWeekends: boolean): Promise<void> {
+  openDailyNote(getPreviousDailyNoteDate(skipWeekends));
+}
 
 export async function openNextDailyNote(skipWeekends: boolean): Promise<void> {
-  const date = getNextDailyNoteDate(skipWeekends);
-  const note = await getOrCreateNextDailyNote(date);
+  openDailyNote(getNextDailyNoteDate(skipWeekends));
+}
+
+export async function openDailyNote(date: moment.Moment): Promise<void> {
+  const note = await getOrCreateDailyNote(date);
 
   if (note) openNote(note);
 }
 
-async function getOrCreateNextDailyNote(date: moment.Moment): Promise<TFile | void> {
+async function getOrCreateDailyNote(date: moment.Moment): Promise<TFile | void> {
   let nextDailyNote = getDailyNote(date, getAllDailyNotes());
   if (!nextDailyNote) {
     nextDailyNote = await createDailyNote(date);

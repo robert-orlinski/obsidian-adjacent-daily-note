@@ -1,4 +1,4 @@
-# Tomorrow's Daily Note
+# Adjacent Daily Note
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/frankolson/obsidian-tomorrows-daily-note/releases.yml?branch=main&style=for-the-badge) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/frankolson/obsidian-tomorrows-daily-note?sort=semver&style=for-the-badge)
 
@@ -37,6 +37,7 @@ You can find the most up-to-date guides for installation here: https://help.obsi
 3. Enable the plugin in the [Community plugins](https://help.obsidian.md/Advanced+topics/Community+plugins) settings menu
 
 ## For developers
+
 Pull requests are both welcome and appreciated.
 
 If you would like to contribute to the development of this plugin, please follow the guidelines provided in [CONTRIBUTING.md](CONTRIBUTING.md).

@@ -1,32 +1,32 @@
-import TomorrowsDailyNote from "./index";
+import AdjacentDailyNote from "./index";
 import { App, PluginSettingTab, Setting } from "obsidian";
 
-export interface TomorrowsDailyNoteSettings {
+export interface AdjacentDailyNoteSettings {
   skipWeekends: boolean;
   enableRibbonIcon: boolean;
 }
 
-export const DEFAULT_SETTINGS: Partial<TomorrowsDailyNoteSettings> = {
+export const DEFAULT_SETTINGS: Partial<AdjacentDailyNoteSettings> = {
   skipWeekends: false,
   enableRibbonIcon: true,
 };
 
-export class TomorrowsDailyNoteSettingTab extends PluginSettingTab {
-  plugin: TomorrowsDailyNote;
+export class AdjacentDailyNoteSettingTab extends PluginSettingTab {
+  plugin: AdjacentDailyNote;
 
-  constructor(app: App, plugin: TomorrowsDailyNote) {
+  constructor(app: App, plugin: AdjacentDailyNote) {
     super(app, plugin);
     this.plugin = plugin;
   }
 
   display(): void {
-    let { containerEl } = this;
+    const { containerEl } = this;
 
     containerEl.empty();
 
     new Setting(containerEl)
-      .setName("Skip Weekends")
-      .setDesc("Skip weekends when opening tomorrow's daily note")
+      .setName("Skip weekends")
+      .setDesc("Skip weekends when opening yesterday's and tomorrow's daily notes.")
       .addToggle((toggle) =>
         toggle.setValue(this.plugin.settings.skipWeekends).onChange(async (value) => {
           this.plugin.settings.skipWeekends = value;
@@ -35,10 +35,8 @@ export class TomorrowsDailyNoteSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Show icon in sidebar")
-      .setDesc(
-        "Show Tomorrow's Daily Note icon in the sidebar ribbon, allowing you to open tomorrow's daily note with a single click.",
-      )
+      .setName("Show icons in sidebar")
+      .setDesc("Show Yesterday's and Tomorrow's Daily Note icon in the sidebar ribbon.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.enableRibbonIcon)
@@ -47,9 +45,9 @@ export class TomorrowsDailyNoteSettingTab extends PluginSettingTab {
             await this.plugin.saveSettings();
 
             if (enableRibbonIcon) {
-              this.plugin.ribbonHandler.addRibbonIcon();
+              this.plugin.ribbonHandler.addRibbonIcons();
             } else {
-              this.plugin.ribbonHandler.removeRibbonIcon();
+              this.plugin.ribbonHandler.removeRibbonIcons();
             }
           }),
       );
