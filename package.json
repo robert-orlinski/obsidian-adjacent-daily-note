@@ -1,5 +1,5 @@
 {
-  "name": "obsidian-adjacent-daily-note",
+  "name": "obsidian-tomorrows-daily-note",
   "version": "2.0.0",
   "description": "An obsidian plugin that opens yesterday's and tomorrow's daily note (or creates one them at a time) for easier planning.",
   "main": "main.js",

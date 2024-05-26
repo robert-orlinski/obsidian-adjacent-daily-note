@@ -1,7 +1,7 @@
 {
-  "id": "obsidian-adjacent-daily-note",
+  "id": "obsidian-tomorrows-daily-note",
   "name": "Adjacent Daily Note",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "minAppVersion": "0.12.0",
   "description": "An obsidian plugin that opens yesterday's and tomorrow's daily note (or creates one them at a time) for easier planning.",
   "author": "Will Olson",
